@@ -27,17 +27,19 @@
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+
 #pragma once
+
 #include <cstring>
 #include <map>
-#include "mysql/mysql.h"
+
+#include <mysql.h>
+
+#include <lua.hpp>
+
 #include "mysql_result.h"
-extern "C"
-{
-#include "Lua/lua.h"
-#include "Lua/lualib.h"
-#include "Lua/lauxlib.h"
-}
+
+
 struct lua_State;
 
 class MySQL

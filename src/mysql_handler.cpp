@@ -30,9 +30,10 @@
 
 
 #include <map>
-#include "mysql/mysql.h"
+
+#include <mysql.h>
+
 #include "mysql_handler.h"
-#include "snetwork.h"
 
 
 
@@ -363,7 +364,7 @@ int MySQL::Connect(lua_State* L)
     database = luaL_checkstring(L, 4);
     if (numparams >= 5)
     {
-      port = (unsigned int)luaL_checkint(L, 5);
+      port = (unsigned int)luaL_checkinteger(L, 5);
       if (numparams >= 6)
       {
         if (lua_type(L, 6) != LUA_TNIL)
@@ -398,7 +399,6 @@ int MySQL::Connect(lua_State* L)
 	snprintf ( szError, sizeof ( szError ), "Unable to connect to mysql: (%d) %s\n", handler->Errno(), handler->Error() );
 #endif
 
-    LOG( szError );
     delete handler;
     lua_pushnil(L);
   }

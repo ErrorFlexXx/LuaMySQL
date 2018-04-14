@@ -28,10 +28,9 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+#include <mysql.h>
 
-#include "mysql/mysql.h"
-#include "mysql_result.h"
-#include "snetwork.h"
+#include <mysql_result.h>
 
 /**
  ** Tool functions
@@ -443,7 +442,6 @@ int MySQL_Result::FieldLength(lua_State* L)
 
   if (offset < 1 || offset > result->NumFields())
   {
-    LOG("Invalid offset in mysql_field_length\n");
     lua_pushnil(L);
     return 1;
   }
@@ -467,7 +465,6 @@ int MySQL_Result::FieldName(lua_State* L)
 
   if (offset < 1 || offset > result->NumFields())
   {
-    LOG("Invalid offset in mysql_field_name\n");
     lua_pushnil(L);
     return 1;
   }
@@ -495,7 +492,6 @@ int MySQL_Result::FieldSeek(lua_State* L)
 
   if (offset < 1 || offset > result->NumFields())
   {
-    LOG("Invalid offset in mysql_field_seek\n");
     lua_pushnil(L);
     return 1;
   }
@@ -564,13 +560,11 @@ int MySQL_Result::Result(lua_State* L)
 
   if (rowoffset < 1 || rowoffset > result->NumRows())
   {
-    LOG("Invalid row offset in mysql_result\n");
     lua_pushnil(L);
     return 1;
   }
   if (fieldoffset < 1 || fieldoffset > result->NumFields())
   {
-    LOG("Invalid field offset in mysql_result\n");
     lua_pushnil(L);
     return 1;
   }

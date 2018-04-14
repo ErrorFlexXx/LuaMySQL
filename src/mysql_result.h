@@ -29,14 +29,10 @@
  */
 
 #pragma once
-#include "mysql/mysql.h"
-extern "C"
-{
-#include "Lua/lua.h"
-#include "Lua/lualib.h"
-#include "Lua/lauxlib.h"
-}
 
+#include <mysql.h>
+
+#include <lua.hpp>
 
 class MySQL_Result
 {
